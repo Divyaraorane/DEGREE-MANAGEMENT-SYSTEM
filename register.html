@@ -148,6 +148,81 @@ font-size:12px;
 opacity:.8;
 }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablet */
+
+@media (max-width:768px){
+
+.register-container{
+max-width:380px;
+padding:30px;
+}
+
+.logo img{
+width:80px;
+height:80px;
+}
+
+h2{
+font-size:22px;
+}
+
+.register-btn{
+font-size:15px;
+padding:11px;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:480px){
+
+body{
+padding:10px;
+}
+
+.register-container{
+padding:25px 20px;
+border-radius:15px;
+}
+
+.logo img{
+width:70px;
+height:70px;
+}
+
+h2{
+font-size:20px;
+}
+
+.subtitle{
+font-size:13px;
+}
+
+.input-box input{
+font-size:13px;
+padding:9px;
+}
+
+.register-btn{
+font-size:14px;
+padding:10px;
+}
+
+.links{
+font-size:13px;
+}
+
+.footer{
+font-size:11px;
+}
+
+}
+
 </style>
 </head>
 
@@ -229,7 +304,6 @@ event.preventDefault();
 
 alert("✅ Account Created Successfully!\nWelcome to Akshaya Farms Dairy System 🐄🥛");
 
-// redirect to login page after message
 window.location.href="index.html";
 
 }
