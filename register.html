@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akshaya Farms - Create Account</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+/* Background */
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+
+background:
+linear-gradient(rgba(0,26,60,0.65), rgba(0,60,0,0.65)),
+url("imag/2025-11-19.webp");
+
+background-repeat:no-repeat;
+background-position:center;
+background-size:cover;
+}
+
+/* Register Card */
+
+.register-container{
+width:100%;
+max-width:420px;
+padding:40px;
+border-radius:20px;
+background:rgba(0,0,0,0.55);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.25);
+color:white;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* Logo */
+
+.logo img{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid white;
+margin-bottom:10px;
+}
+
+/* Titles */
+
+h2{
+margin-bottom:5px;
+}
+
+.subtitle{
+font-size:14px;
+margin-bottom:20px;
+opacity:.9;
+}
+
+/* Inputs */
+
+.input-group{
+margin:12px 0;
+text-align:left;
+}
+
+.input-group label{
+font-size:14px;
+}
+
+.input-box{
+display:flex;
+align-items:center;
+background:white;
+border-radius:6px;
+overflow:hidden;
+margin-top:5px;
+}
+
+.input-box i{
+padding:10px;
+color:#145214;
+}
+
+.input-box input{
+border:none;
+outline:none;
+padding:10px;
+flex:1;
+font-size:14px;
+}
+
+/* Button */
+
+.register-btn{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:none;
+background:#1b7a1b;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+transition:.3s;
+}
+
+.register-btn:hover{
+background:#0e4d0e;
+}
+
+/* Links */
+
+.links{
+margin-top:15px;
+font-size:14px;
+}
+
+.links a{
+color:#90ee90;
+text-decoration:none;
+}
+
+.links a:hover{
+text-decoration:underline;
+}
+
+.footer{
+margin-top:20px;
+font-size:12px;
+opacity:.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="register-container">
+
+<div class="logo">
+<img src="imag/7a0bd111-50ef-4923-87e1-7307765a36d5.jfif">
+</div>
+
+<h2>Akshaya Farms</h2>
+<p class="subtitle">Create Dairy Management Account</p>
+
+<form onsubmit="showMessage(event)">
+
+<div class="input-group">
+<label>Full Name</label>
+
+<div class="input-box">
+<i class="fa fa-user"></i>
+<input type="text" placeholder="Enter Full Name" required>
+</div>
+
+</div>
+
+<div class="input-group">
+<label>Mobile Number</label>
+
+<div class="input-box">
+<i class="fa fa-phone"></i>
+<input type="tel" placeholder="Enter Mobile Number" required>
+</div>
+
+</div>
+
+<div class="input-group">
+<label>Password</label>
+
+<div class="input-box">
+<i class="fa fa-lock"></i>
+<input type="password" placeholder="Create Password" required>
+</div>
+
+</div>
+
+<div class="input-group">
+<label>Confirm Password</label>
+
+<div class="input-box">
+<i class="fa fa-lock"></i>
+<input type="password" placeholder="Confirm Password" required>
+</div>
+
+</div>
+
+<button class="register-btn">
+<i class="fa fa-user-plus"></i> Create Account
+</button>
+
+</form>
+
+<div class="links">
+Already have account? 
+<a href="index.html">Login Here</a>
+</div>
+
+<div class="footer">
+© 2026 Akshaya Farms Dairy System
+</div>
+
+</div>
+
+<script>
+
+function showMessage(event){
+
+event.preventDefault();
+
+alert("✅ Account Created Successfully!\nWelcome to Akshaya Farms Dairy System 🐄🥛");
+
+// redirect to login page after message
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>
