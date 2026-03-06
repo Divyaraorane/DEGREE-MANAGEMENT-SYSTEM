@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akshaya Farms Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+display:flex;
+min-height:100vh;
+background:#f4f7f4;
+}
+
+/* Sidebar */
+
+.sidebar{
+width:240px;
+background:#0e4d0e;
+color:white;
+padding:20px;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.sidebar ul{
+list-style:none;
+}
+
+.sidebar ul li{
+padding:15px;
+margin:10px 0;
+border-radius:8px;
+cursor:pointer;
+}
+
+.sidebar ul li:hover{
+background:#1b7a1b;
+}
+
+.sidebar i{
+margin-right:10px;
+}
+
+/* Main */
+
+.main{
+flex:1;
+padding:30px;
+}
+
+/* Header */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.header h1{
+color:#145214;
+}
+
+/* Cards */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.card i{
+font-size:35px;
+color:#1b7a1b;
+margin-bottom:10px;
+}
+
+.card h3{
+margin-bottom:5px;
+}
+
+/* Table */
+
+.table-container{
+margin-top:40px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+text-align:left;
+border-bottom:1px solid #ddd;
+}
+
+th{
+background:#1b7a1b;
+color:white;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.sidebar{
+display:none;
+}
+
+body{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>🐄 Akshaya Farms</h2>
+
+<ul>
+
+<li><i class="fa fa-chart-line"></i> Dashboard</li>
+
+<li><i class="fa fa-cow"></i> Cow Management</li>
+
+<li><i class="fa fa-glass-water"></i> Milk Production</li>
+
+<li><i class="fa fa-users"></i> Staff</li>
+
+<li><i class="fa fa-chart-bar"></i> Reports</li>
+
+<li onclick="logout()"><i class="fa fa-right-from-bracket"></i> Logout</li>
+
+</ul>
+
+</div>
+
+<!-- Main -->
+
+<div class="main">
+
+<div class="header">
+
+<h1>Dairy Dashboard</h1>
+
+</div>
+
+<!-- Cards -->
+
+<div class="cards">
+
+<div class="card">
+<i class="fa fa-cow"></i>
+<h3>Total Cows</h3>
+<p>25</p>
+</div>
+
+<div class="card">
+<i class="fa fa-glass-water"></i>
+<h3>Milk Today</h3>
+<p>120 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-users"></i>
+<h3>Staff</h3>
+<p>6</p>
+</div>
+
+<div class="card">
+<i class="fa fa-indian-rupee-sign"></i>
+<h3>Revenue</h3>
+<p>₹8,500</p>
+</div>
+
+</div>
+
+<!-- Milk Table -->
+
+<div class="table-container">
+
+<h3>🥛 Today's Milk Production</h3>
+
+<table>
+
+<tr>
+<th>Cow ID</th>
+<th>Cow Name</th>
+<th>Milk (Liters)</th>
+<th>Time</th>
+</tr>
+
+<tr>
+<td>101</td>
+<td>Gir Lakshmi</td>
+<td>8 L</td>
+<td>Morning</td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>Gir Ganga</td>
+<td>7 L</td>
+<td>Morning</td>
+</tr>
+
+<tr>
+<td>103</td>
+<td>Gir Kamdhenu</td>
+<td>9 L</td>
+<td>Evening</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+function logout(){
+
+alert("Logged Out Successfully");
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+</html>
