@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshaya Farms Milk Dashboard</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+background:
+linear-gradient(rgba(0,60,0,0.65),rgba(0,40,0,0.65)),
+url("imag1.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+color:#fff;
+}
+
+.main{
+padding:30px;
+max-width:1200px;
+margin:auto;
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+flex-wrap:wrap;
+}
+
+.logo{
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* DASHBOARD CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-bottom:25px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card i{
+font-size:28px;
+color:#1b7a1b;
+margin-bottom:10px;
+}
+
+.card h3{
+font-size:16px;
+color:#555;
+}
+
+.card p{
+font-size:22px;
+font-weight:bold;
+color:#1b7a1b;
+}
+
+/* FORM */
+
+.form-box{
+background:white;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-box h3{
+margin-bottom:10px;
+color:#1b7a1b;
+}
+
+input,select{
+padding:10px;
+margin:6px;
+border:1px solid #ccc;
+border-radius:6px;
+width:180px;
+}
+
+button{
+padding:10px 15px;
+background:#1b7a1b;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:6px;
+}
+
+button:hover{
+background:#146214;
+}
+
+/* TABLE */
+
+.table-box{
+overflow-x:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+th,td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #ddd;
+color:black;
+}
+
+th{
+background:#1b7a1b;
+color:white;
+}
+
+tr:nth-child(even){
+background:#f8f8f8;
+}
+
+td span{
+cursor:pointer;
+font-size:18px;
+margin:0 5px;
+}
+
+canvas{
+margin-top:20px;
+background:white;
+padding:15px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+width:100%;
+}
+
+/* ====================== */
+/* LARGE DESKTOP */
+/* ====================== */
+
+@media (min-width:1600px){
+
+.main{
+max-width:1400px;
+}
+
+.cards{
+grid-template-columns:repeat(4,1fr);
+}
+
+}
+
+/* ====================== */
+/* DESKTOP */
+/* ====================== */
+
+@media (max-width:1200px){
+
+.cards{
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+}
+
+/* ====================== */
+/* LAPTOP */
+/* ====================== */
+
+@media (max-width:992px){
+
+.header h1{
+font-size:24px;
+}
+
+.cards{
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
+}
+
+}
+
+/* ====================== */
+/* TABLET */
+/* ====================== */
+
+@media (max-width:768px){
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.logo{
+width:55px;
+height:55px;
+}
+
+.header h1{
+font-size:22px;
+}
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+input,select{
+width:100%;
+}
+
+button{
+width:100%;
+}
+
+table{
+min-width:600px;
+}
+
+}
+
+/* ====================== */
+/* MOBILE */
+/* ====================== */
+
+@media (max-width:480px){
+
+.main{
+padding:15px;
+}
+
+.logo{
+width:45px;
+height:45px;
+}
+
+.header h1{
+font-size:20px;
+}
+
+.cards{
+grid-template-columns:1fr;
+gap:12px;
+}
+
+.card{
+padding:15px;
+}
+
+.card h3{
+font-size:14px;
+}
+
+.card p{
+font-size:16px;
+}
+
+}
+
+/* ====================== */
+/* SMALL MOBILE */
+/* ====================== */
+
+@media (max-width:360px){
+
+.header h1{
+font-size:18px;
+}
+
+.card p{
+font-size:15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="main">
+
+<div class="header">
+<img src="imag.jpg" class="logo">
+<h1>Akshaya Farms Milk Record</h1>
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="cards">
+
+<div class="card">
+<i class="fa fa-database"></i>
+<h3>Total Records</h3>
+<p id="recordCount">0</p>
+</div>
+
+<div class="card">
+<i class="fa fa-glass-water"></i>
+<h3>Total Milk</h3>
+<p id="milkTotal">0 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-sun"></i>
+<h3>Morning Milk</h3>
+<p id="morningMilk">0 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-moon"></i>
+<h3>Evening Milk</h3>
+<p id="eveningMilk">0 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-cart-shopping"></i>
+<h3>Sale Milk</h3>
+<p id="saleMilk">0 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-cheese"></i>
+<h3>Ghee Milk</h3>
+<p id="gheeMilk">0 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-calendar"></i>
+<h3>Monthly Milk</h3>
+<p id="monthlyMilk">0 L</p>
+</div>
+
+<div class="card">
+<i class="fa fa-calendar-week"></i>
+<h3>Weekly Milk</h3>
+<p id="weeklyMilk">0 L</p>
+</div>
+
+</div>
+
+<!-- ADD RECORD -->
+
+<div class="form-box">
+
+<h3>Cow Milk Record</h3>
+
+<input id="cow" placeholder="Cow Name">
+<input id="milk" placeholder="Liters">
+
+<select id="session">
+<option value="">Select Time</option>
+<option value="Morning">Morning</option>
+<option value="Evening">Evening</option>
+</select>
+
+<input type="date" id="date">
+
+<button onclick="addMilk()">Add</button>
+
+</div>
+
+<!-- SEARCH -->
+
+<div class="form-box">
+
+<h3>Search by Date</h3>
+
+<input type="date" id="searchDate">
+
+<button onclick="searchMilk()">Search</button>
+<button onclick="loadTable()">Reset</button>
+<button onclick="exportExcel()">Export Excel</button>
+
+</div>
+
+<!-- TABLE -->
+
+<div class="table-box">
+<table id="milkTable">
+
+<thead>
+<tr>
+<th>Cow</th>
+<th>Milk</th>
+<th>Session</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="tableBody"></tbody>
+
+</table>
+</div>
+
+<canvas id="milkChart"></canvas>
+
+</div>
+
+<script>
+
+let milkRecords = JSON.parse(localStorage.getItem("milk")) || [];
+let chart;
+
+function addMilk(){
+
+let cow=document.getElementById("cow").value;
+let milk=document.getElementById("milk").value;
+let session=document.getElementById("session").value;
+let date=document.getElementById("date").value;
+
+if(!cow||!milk||!session||!date){
+alert("Enter all fields");
+return;
+}
+
+milkRecords.push({cow,milk,session,date});
+localStorage.setItem("milk",JSON.stringify(milkRecords));
+
+loadTable();
+}
+
+function loadTable(){
+
+let table="";
+
+milkRecords.forEach((r,i)=>{
+
+table+=`<tr>
+<td>${r.cow}</td>
+<td>${r.milk}</td>
+<td>${r.session}</td>
+<td>${r.date}</td>
+<td>
+<span onclick="editRecord(${i})">✏</span>
+<span onclick="deleteRecord(${i})">❌</span>
+</td>
+</tr>`;
+});
+
+document.getElementById("tableBody").innerHTML=table;
+
+updateDashboard();
+updateChart();
+}
+
+function deleteRecord(i){
+
+milkRecords.splice(i,1);
+localStorage.setItem("milk",JSON.stringify(milkRecords));
+loadTable();
+}
+
+function editRecord(i){
+
+let r=milkRecords[i];
+
+cow.value=r.cow;
+milk.value=r.milk;
+session.value=r.session;
+date.value=r.date;
+
+deleteRecord(i);
+}
+
+function searchMilk(){
+
+let date=document.getElementById("searchDate").value;
+
+let filtered=milkRecords.filter(r=>r.date===date);
+
+let table="";
+
+filtered.forEach(r=>{
+table+=`<tr>
+<td>${r.cow}</td>
+<td>${r.milk}</td>
+<td>${r.session}</td>
+<td>${r.date}</td>
+<td>-</td>
+</tr>`;
+});
+
+document.getElementById("tableBody").innerHTML=table;
+}
+
+function updateDashboard(){
+
+recordCount.innerText=milkRecords.length;
+
+let total=0;
+let morning=0;
+let evening=0;
+let sale=0;
+let ghee=0;
+let monthly=0;
+let weekly=0;
+
+let today=new Date();
+let thisMonth=today.getMonth();
+let thisWeek=today.getDate()-7;
+
+milkRecords.forEach(r=>{
+
+let milk=Number(r.milk);
+let d=new Date(r.date);
+
+total+=milk;
+
+if(r.session=="Morning"){
+morning+=milk;
+sale+=milk;
+}
+
+if(r.session=="Evening"){
+evening+=milk;
+ghee+=milk;
+}
+
+if(d.getMonth()==thisMonth){
+monthly+=milk;
+}
+
+if(d.getDate()>=thisWeek){
+weekly+=milk;
+}
+
+});
+
+milkTotal.innerText=total+" L";
+morningMilk.innerText=morning+" L";
+eveningMilk.innerText=evening+" L";
+saleMilk.innerText=sale+" L";
+gheeMilk.innerText=ghee+" L";
+monthlyMilk.innerText=monthly+" L";
+weeklyMilk.innerText=weekly+" L";
+}
+
+function updateChart(){
+
+let labels=milkRecords.map(r=>r.date);
+let data=milkRecords.map(r=>r.milk);
+
+if(chart) chart.destroy();
+
+chart=new Chart(document.getElementById("milkChart"),{
+type:"bar",
+data:{
+labels:labels,
+datasets:[{
+label:"Milk Production",
+data:data,
+backgroundColor:"#1b7a1b"
+}]
+}
+});
+}
+
+function exportExcel(){
+
+let table=document.getElementById("milkTable").outerHTML;
+
+let a=document.createElement('a');
+
+a.href='data:application/vnd.ms-excel,'+encodeURIComponent(table);
+a.download='milk_records.xls';
+a.click();
+
+}
+
+loadTable();
+
+</script>
+
+</body>
+</html>
