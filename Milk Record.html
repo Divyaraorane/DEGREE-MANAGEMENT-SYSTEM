@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
@@ -43,6 +44,16 @@ align-items:center;
 gap:15px;
 margin-bottom:25px;
 flex-wrap:wrap;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:15px 20px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+.header h1{
+font-weight:600;
+letter-spacing:1px;
 }
 
 .logo{
@@ -50,6 +61,7 @@ width:60px;
 height:60px;
 border-radius:50%;
 object-fit:cover;
+border:3px solid #fff;
 }
 
 /* DASHBOARD CARDS */
@@ -62,47 +74,49 @@ margin-bottom:25px;
 }
 
 .card{
-background:white;
+background:rgba(255,255,255,0.95);
 padding:20px;
 border-radius:12px;
 text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
+box-shadow:0 15px 30px rgba(0,0,0,0.25);
 }
 
 .card i{
-font-size:28px;
+font-size:30px;
 color:#1b7a1b;
 margin-bottom:10px;
 }
 
 .card h3{
-font-size:16px;
-color:#555;
+font-size:15px;
+color:#666;
 }
 
 .card p{
-font-size:22px;
+font-size:24px;
 font-weight:bold;
 color:#1b7a1b;
+margin-top:5px;
 }
 
 /* FORM */
 
 .form-box{
-background:white;
+background:rgba(255,255,255,0.95);
 padding:20px;
-border-radius:10px;
+border-radius:12px;
 margin-bottom:20px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
 }
 
 .form-box h3{
-margin-bottom:10px;
+margin-bottom:12px;
 color:#1b7a1b;
 }
 
@@ -114,17 +128,24 @@ border-radius:6px;
 width:180px;
 }
 
+input:focus,select:focus{
+outline:none;
+border-color:#1b7a1b;
+box-shadow:0 0 5px rgba(27,122,27,0.4);
+}
+
 button{
 padding:10px 15px;
-background:#1b7a1b;
+background:linear-gradient(45deg,#1b7a1b,#2ca52c);
 color:white;
 border:none;
 cursor:pointer;
 border-radius:6px;
+transition:0.2s;
 }
 
 button:hover{
-background:#146214;
+transform:scale(1.05);
 }
 
 /* TABLE */
@@ -137,9 +158,9 @@ table{
 width:100%;
 border-collapse:collapse;
 background:white;
-border-radius:10px;
+border-radius:12px;
 overflow:hidden;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
 }
 
 th,td{
@@ -158,84 +179,34 @@ tr:nth-child(even){
 background:#f8f8f8;
 }
 
+tr:hover{
+background:#eef7ee;
+}
+
 td span{
 cursor:pointer;
 font-size:18px;
 margin:0 5px;
 }
 
+/* CHART */
+
 canvas{
 margin-top:20px;
 background:white;
 padding:15px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+border-radius:12px;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
 width:100%;
 }
 
-/* ====================== */
-/* LARGE DESKTOP */
-/* ====================== */
-
-@media (min-width:1600px){
-
-.main{
-max-width:1400px;
-}
-
-.cards{
-grid-template-columns:repeat(4,1fr);
-}
-
-}
-
-/* ====================== */
-/* DESKTOP */
-/* ====================== */
-
-@media (max-width:1200px){
-
-.cards{
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-}
-
-}
-
-/* ====================== */
-/* LAPTOP */
-/* ====================== */
-
-@media (max-width:992px){
-
-.header h1{
-font-size:24px;
-}
-
-.cards{
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:15px;
-}
-
-}
-
-/* ====================== */
-/* TABLET */
-/* ====================== */
+/* RESPONSIVE */
 
 @media (max-width:768px){
 
 .header{
 flex-direction:column;
 align-items:flex-start;
-}
-
-.logo{
-width:55px;
-height:55px;
-}
-
-.header h1{
-font-size:22px;
 }
 
 .cards{
@@ -256,56 +227,14 @@ min-width:600px;
 
 }
 
-/* ====================== */
-/* MOBILE */
-/* ====================== */
-
 @media (max-width:480px){
 
 .main{
 padding:15px;
 }
 
-.logo{
-width:45px;
-height:45px;
-}
-
-.header h1{
-font-size:20px;
-}
-
 .cards{
 grid-template-columns:1fr;
-gap:12px;
-}
-
-.card{
-padding:15px;
-}
-
-.card h3{
-font-size:14px;
-}
-
-.card p{
-font-size:16px;
-}
-
-}
-
-/* ====================== */
-/* SMALL MOBILE */
-/* ====================== */
-
-@media (max-width:360px){
-
-.header h1{
-font-size:18px;
-}
-
-.card p{
-font-size:15px;
 }
 
 }
@@ -612,3 +541,4 @@ loadTable();
 
 </body>
 </html>
+```
